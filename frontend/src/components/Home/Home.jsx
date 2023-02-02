@@ -23,7 +23,7 @@ const Home = () => {
       0.1,
       1000
     );
-    camera.position.set(6, 6, 12);
+    camera.position.set(5, 4, 12);
 
     const canvas = document.querySelector(".homeCanvas");
     console.log(canvas)
@@ -40,14 +40,20 @@ const Home = () => {
 
     const pointLight = new THREE.PointLight(0xffffff, 1);
     const pointLight2 = new THREE.PointLight(0xffffff, 0.1);
+    // const pointLight3 = new THREE.PointLight(0xffffff, 1);
+    // const pointLight4 = new THREE.PointLight(0xffffff, 0.1);
 
     pointLight.position.set(8, 5, 5);
     pointLight2.position.set(-8, -5, -5);
+    // pointLight3.position.set(0,0,0);
+    // pointLight4.position.set(-8, -5, -5);
 
     scene.add(moon);
     scene.add(venus);
     scene.add(pointLight);
     scene.add(pointLight2);
+    // scene.add(pointLight3);
+    // scene.add(pointLight4);
     scene.background = spaceTexture;
 
     const constSpeed = 0.01;
@@ -111,8 +117,7 @@ const Home = () => {
         <canvas className="homeCanvas"></canvas>
 
         <div className="homeCanvasContainer">
-          <Typography variant="h3">TimeLine</Typography>
-          <Typography variant="h1">
+          <Typography variant="h1" color={'purple'}>
             <p>A</p>
             <p>A</p>
             <p>Y</p>
@@ -122,6 +127,8 @@ const Home = () => {
             <p>I</p>
           
           </Typography>
+        </div>
+          <Typography variant="h3">TimeLine</Typography>
           <TimeLine timelines={[1,2,3,4]}/>
 
           {/* <div className="homeCanvasBox">
@@ -130,7 +137,6 @@ const Home = () => {
             <Typography variant="h2">TEACHER</Typography>
             <Typography variant="h2">CONTENT CREATOR</Typography>
           </div> */}
-        </div>
       </div>
     </>
   )
