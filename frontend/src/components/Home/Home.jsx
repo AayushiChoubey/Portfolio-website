@@ -4,6 +4,8 @@ import * as THREE from "three";
 import moonImage from "../../Images/moon.jpg";
 import venusImage from "../../Images/venus.jpg";
 import spaceImage from "../../Images/space.jpg";
+import { Typography } from "@mui/material";
+import TimeLine from "../Timeline/Timeline";
 
 const Home = () => {
 
@@ -21,7 +23,7 @@ const Home = () => {
       0.1,
       1000
     );
-    camera.position.set(4, 4, 8);
+    camera.position.set(6, 6, 12);
 
     const canvas = document.querySelector(".homeCanvas");
     console.log(canvas)
@@ -109,16 +111,18 @@ const Home = () => {
         <canvas className="homeCanvas"></canvas>
 
         <div className="homeCanvasContainer">
-          {/* <Typography variant="h1">
+          <Typography variant="h3">TimeLine</Typography>
+          <Typography variant="h1">
             <p>A</p>
-            <p>B</p>
-            <p>H</p>
-            <p>I</p>
+            <p>A</p>
+            <p>Y</p>
+            <p>U</p>
             <p>S</p>
             <p>H</p>
-            <p>E</p>
-            <p>K</p>
-          </Typography> */}
+            <p>I</p>
+          
+          </Typography>
+          <TimeLine timelines={[1,2,3,4]}/>
 
           {/* <div className="homeCanvasBox">
             <Typography variant="h2">DESIGNER</Typography>
