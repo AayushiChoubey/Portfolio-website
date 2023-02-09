@@ -5,6 +5,7 @@ import moonImage from "../../Images/moon.jpg";
 import venusImage from "../../Images/venus.jpg";
 import spaceImage from "../../Images/space.jpg";
 import image from "../../Images/image.jpg";
+import youtubes from "../../data/youtubes.json";
 import { Typography } from "@mui/material";
 import TimeLine from "../Timeline/Timeline";
 import {
@@ -18,7 +19,7 @@ import {
   SiHtml5,
   SiThreedotjs,
 } from "react-icons/si";
-//import YoutubeCard from "../YoutubeCard/YoutubeCard";
+import YoutubeCard from "../YoutubeCard/Youtube";
 import { Link } from "react-router-dom";
 import { MouseOutlined } from "@mui/icons-material";
 
@@ -215,7 +216,7 @@ const Home = () => {
       <div className="homeYoutube">
         <Typography variant="h3"> YOUTUBE VIDEOS</Typography>
 
-        {/* <div className="homeYoutubeWrapper">
+         <div className="homeYoutubeWrapper">
           {youtubes.map((item) => (
             <YoutubeCard
               image={item.image.url}
@@ -225,7 +226,7 @@ const Home = () => {
               key={item._id}
             />
           ))}
-        </div> */}
+        </div> 
       </div>
     </>
     
