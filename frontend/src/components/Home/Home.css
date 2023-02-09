@@ -5,6 +5,7 @@
     right: 0%;
     text-align: right;
     transform: translate(0%, -50%);
+    overflow-x: hidden;
   }
   
   .homeCanvasBox > h2 {
@@ -12,6 +13,7 @@
     letter-spacing: 22px;
     line-height: 130px;
     color: white;
+    overflow-x: hidden;
   }
   .homeCanvasContainer > a {
     background-color: white;
@@ -26,6 +28,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    overflow-x: hidden;
   }
   .homeCanvasContainer > a:hover {
     color: rgb(255, 255, 255);
@@ -42,6 +45,7 @@
     transform: translateY(-150%);
     padding: 0.5vmax;
     animation: scrollPop 0.5s ease-in infinite alternate;
+    overflow-x: hidden;
   }
   .homeScrollBtn > svg {
     font-size: 3vmax;
@@ -55,6 +59,7 @@
     border-bottom: 200px solid white;
     position: relative;
     z-index: 1;
+    overflow-x: hidden;
   }
   .homeContainer > h3 {
     text-align: center;
@@ -82,6 +87,7 @@
     color: white;
     margin-bottom: 4vmax;
     font-size: 4vmax;
+    overflow-x: hidden;
   }
   
   .homeCubeSkills {
@@ -100,6 +106,7 @@
     width: inherit;
     height: inherit;
     opacity: 0.7;
+
   }
   
   .homeCubeSkillsFaces > img {
@@ -166,6 +173,7 @@
     margin-bottom: -200px;
     box-sizing: border-box;
     min-height: 1000px;
+    overflow-x: hidden;
   }
   
   .homeYoutube > h3 {
