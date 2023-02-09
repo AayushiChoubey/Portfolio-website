@@ -4,8 +4,24 @@ import * as THREE from "three";
 import moonImage from "../../Images/moon.jpg";
 import venusImage from "../../Images/venus.jpg";
 import spaceImage from "../../Images/space.jpg";
+import image from "../../Images/image.jpg";
 import { Typography } from "@mui/material";
 import TimeLine from "../Timeline/Timeline";
+import {
+  SiCplusplus,
+  SiReact,
+  SiJavascript,
+  SiMongodb,
+  SiNodedotjs,
+  SiExpress,
+  SiCss3,
+  SiHtml5,
+  SiThreedotjs,
+} from "react-icons/si";
+//import YoutubeCard from "../YoutubeCard/YoutubeCard";
+import { Link } from "react-router-dom";
+import { MouseOutlined } from "@mui/icons-material";
+
 
 const Home = () => {
 
@@ -116,7 +132,7 @@ const Home = () => {
       <div className="home">
         <canvas className="homeCanvas"></canvas>
 
-        <div className="homeCanvasContainer">
+        {/* <div className="homeCanvasContainer">
           <Typography variant="h1" color={'purple'}>
             <p>A</p>
             <p>A</p>
@@ -129,16 +145,90 @@ const Home = () => {
           </Typography>
         </div>
           <Typography variant="h3">TimeLine</Typography>
-          <TimeLine timelines={[1,2,3,4]}/>
+          <TimeLine timelines={[1,2,3,4]}/> */}
 
-          {/* <div className="homeCanvasBox">
-            <Typography variant="h2">DESIGNER</Typography>
-            <Typography variant="h2">DEVELOPER</Typography>
-            <Typography variant="h2">TEACHER</Typography>
-            <Typography variant="h2">CONTENT CREATOR</Typography>
-          </div> */}
+        
+    
+      {/* <div className="homeCanvasBox">
+          <Typography variant="h2">DESIGNER</Typography>
+          <Typography variant="h2">DEVELOPER</Typography>
+          <Typography variant="h2">TEACHER</Typography>
+          <Typography variant="h2">CONTENT CREATOR</Typography>
+        </div> */}
+
+        <Link to="/projects">VIEW WORK</Link>
+      </div>
+
+      <div className="homeScrollBtn">
+        <MouseOutlined />
+      </div>
+
+      <div className="homeContainer">
+        <Typography variant="h3">TIMELINE</Typography>
+        <TimeLine timelines={[1,2,3,4]} />
+      </div>
+
+      <div className="homeSkills">
+        <Typography variant="h3">SKILLS</Typography>
+
+        <div className="homeCubeSkills">
+          <div className="homeCubeSkillsFaces homeCubeSkillsFace1">
+            <img src={image} alt="Face1" />
+          </div>
+
+          <div className="homeCubeSkillsFaces homeCubeSkillsFace2">
+            <img src={image} alt="Face2" />
+          </div>
+
+          <div className="homeCubeSkillsFaces homeCubeSkillsFace3">
+            <img src={image} alt="Face3" />
+          </div>
+
+          <div className="homeCubeSkillsFaces homeCubeSkillsFace4">
+            <img src={image} alt="Face4" />
+          </div>
+
+          <div className="homeCubeSkillsFaces homeCubeSkillsFace5">
+            <img src={image} alt="Face5" />
+          </div>
+
+          <div className="homeCubeSkillsFaces homeCubeSkillsFace6">
+            <img src={image} alt="Face6" />
+          </div>
+        </div>
+
+        <div className="cubeShadow"></div>
+
+        <div className="homeskillsBox" id="homeskillsBox">
+          <SiCplusplus />
+          <SiHtml5 />
+          <SiCss3 />
+          <SiJavascript />
+          <SiMongodb />
+          <SiExpress />
+          <SiReact />
+          <SiNodedotjs />
+          <SiThreedotjs />
+        </div>
+      </div>
+
+      <div className="homeYoutube">
+        <Typography variant="h3"> YOUTUBE VIDEOS</Typography>
+
+        {/* <div className="homeYoutubeWrapper">
+          {youtubes.map((item) => (
+            <YoutubeCard
+              image={item.image.url}
+              title={item.title}
+              url={item.url}
+              id={item._id}
+              key={item._id}
+            />
+          ))}
+        </div> */}
       </div>
     </>
+    
   )
 }
 
