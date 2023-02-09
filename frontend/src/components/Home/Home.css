@@ -1,4 +1,6 @@
-
+.home{
+  overflow-x: hidden;
+}
 .homeCanvasBox {
     position: absolute;
     top: 50%;
