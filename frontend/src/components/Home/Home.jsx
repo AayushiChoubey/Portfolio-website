@@ -43,7 +43,8 @@ const Home = () => {
     camera.position.set(5, 4, 12);
 
     const canvas = document.querySelector(".homeCanvas");
-    console.log(canvas)
+  
+
     const renderer = new THREE.WebGLRenderer({ canvas });
 
     const moonGeometry = new THREE.SphereGeometry(2, 64, 64);

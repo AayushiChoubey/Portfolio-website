@@ -68,4 +68,12 @@
   .footerContactBtn:hover p {
     color: rgb(255, 255, 255);
   }
-  
+  /* media-query  */
+    @media screen and (max-width: 768px) {
+        .footer {
+        grid-template-columns: 1fr;
+        }
+        .footer > div > p {
+        width: 100%;
+        }
+    }
