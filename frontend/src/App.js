@@ -2,7 +2,7 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
-//import About from "./components/About/About";
+import About from "./components/About/About";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 function App() {
@@ -13,7 +13,7 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Home />} />
-        {/* <Route path="/about" element={<About />} /> */}
+        <Route path="/about" element={<About/>} />
       </Routes>
       <Footer />
     </Router>
