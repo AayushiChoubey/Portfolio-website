@@ -63,10 +63,10 @@ const Projects = ({ projects }) => {
             //id={item._id}
             key={item.key}
             url={item.url}
-            projectImage={item.projectImage}
-            projectTitle={item.projectTitle}
+            projectImage={item.image}
+            projectTitle={item.title}
             description={item.description}
-            technologies={item.technologies}
+            technologies={item.techStack}
           />
         ))}
       </div>
