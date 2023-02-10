@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "backend/server.js",
+  "type": "module",
   "scripts": { 
     "dev": "nodemon backend/server.js"
   },
