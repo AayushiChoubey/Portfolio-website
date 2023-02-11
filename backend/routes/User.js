@@ -5,7 +5,8 @@ import {login,
      getUser,
      myProfile,
      contact,
-     updateUser
+     updateUser,
+      addTimeline
 }
       from '../controllers/User.js';
 
@@ -23,5 +24,6 @@ userRouter.route("/me").get(isAuthenticated, myProfile);
 
 userRouter.route("/admin/update").put(isAuthenticated, updateUser);
 
+userRouter.route("/admin/timeline/add").post(isAuthenticated, addTimeline);
 
 userRouter.route("/contact").post(contact);
