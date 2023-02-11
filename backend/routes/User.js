@@ -8,7 +8,10 @@ import {login,
      updateUser,
       addTimeline,
       addYoutube,
-      addProject
+      addProject,
+      deleteTimeline,
+      deleteYoutube,
+      deleteProject
 }
       from '../controllers/User.js';
 
@@ -31,6 +34,10 @@ userRouter.route("/admin/timeline/add").post(isAuthenticated, addTimeline);
 userRouter.route("/admin/youtube/add").post(isAuthenticated, addYoutube);
 
 userRouter.route("/admin/project/add").post(isAuthenticated, addProject);
+
+userRouter.route("/admin/timeline/:id").delete(isAuthenticated, deleteTimeline);
+userRouter.route("/admin/youtube/:id").delete(isAuthenticated, deleteYoutube);
+userRouter.route("/admin/project/:id").delete(isAuthenticated, deleteProject);
 
 
 

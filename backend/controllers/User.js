@@ -355,3 +355,79 @@ export const addProject = async (req, res) => {
     });
   }
 };
+
+export const deleteTimeline = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const user = await User.findById(req.user._id);
+
+    console.log(user.timeline)
+    user.timeline = user.timeline.filter((item) => item._id != id);
+    console.log(user.timeline)
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Deleted from Timline",
+    });
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+export const deleteYoutube = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const user = await User.findById(req.user._id);
+
+    const video = user.youtube.find((video) => video._id == id);
+
+    await cloudinary.v2.uploader.destroy(video.image.public_id);
+
+    user.youtube = user.youtube.filter((video) => video._id != id);
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Deleted from Youtube",
+    });
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+export const deleteProject = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const user = await User.findById(req.user._id);
+
+    const project = user.projects.find((item) => item._id == id);
+
+    await cloudinary.v2.uploader.destroy(project.image.public_id);
+
+    user.projects = user.projects.filter((item) => item._id != id);
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Deleted from Projects",
+    });
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
