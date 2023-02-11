@@ -320,3 +320,38 @@ export const login = async (req, res) => {
     }
   };
   
+  
+export const addProject = async (req, res) => {
+  try {
+    const { url, title, image, description, techStack } = req.body;
+
+    const user = await User.findById(req.user._id);
+
+    const myCloud = await cloudinary.v2.uploader.upload(image.url, {public_id: image.public_id})
+    // const myCloud = await cloudinary.v2.uploader.upload(image.url, image.public_id, {
+    //   folder: "portfolio",
+    // });
+    user.projects.unshift({
+      url,
+      title,
+      description,
+      techStack,
+      image: {
+        public_id: myCloud.public_id,
+        url: myCloud.secure_url,
+      },
+    });
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Added To Projects",
+    });
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};

@@ -7,7 +7,8 @@ import {login,
      contact,
      updateUser,
       addTimeline,
-      addYoutube
+      addYoutube,
+      addProject
 }
       from '../controllers/User.js';
 
@@ -28,6 +29,8 @@ userRouter.route("/admin/update").put(isAuthenticated, updateUser);
 userRouter.route("/admin/timeline/add").post(isAuthenticated, addTimeline);
 
 userRouter.route("/admin/youtube/add").post(isAuthenticated, addYoutube);
+
+userRouter.route("/admin/project/add").post(isAuthenticated, addProject);
 
 
 
