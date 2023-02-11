@@ -1,4 +1,5 @@
 import {User} from "../model/User.js";
+import {Contact} from "../model/Contact.js";
 import jwt from "jsonwebtoken";
 import { sendMail } from "../middlewares/sendMail.js";
 
@@ -91,19 +92,27 @@ export const login = async (req, res) => {
     try {
       const { name, email, message } = req.body;
   
-      const userMessage = `Hey, I am ${name}. My email is ${email}. My message is ${message}.`;
+      
+      //const userMessage = `Hey, I am ${name}. My email is ${email}. My message is ${message}.`;
+      
 
-    //   await userMessage.save().then(()=>{
+      //await userMessage.save()
+    //.then(()=>{
     //     res.send("This item has been saved to the database")
     // }).catch(()=>{
     //     res.status(400).send("Item was not saved to the database")
     // });
      
-      await sendMail(userMessage);
+      //await sendMail(userMessage);
+
+      const newContact = await Contact.create({
+        name, email, message
+      });
      
    return res.status(200).json({
         success: true,
         message: "Message Sent Successfully",
+        feedback: newContact,
       });
 
     } catch (error) {
