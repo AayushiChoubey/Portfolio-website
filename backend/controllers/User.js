@@ -286,3 +286,37 @@ export const login = async (req, res) => {
       });
     }
   };
+
+  export const addYoutube = async (req, res) => {
+    try {
+      const { url, title, image } = req.body;
+  
+      const user = await User.findById(req.user._id);
+  
+      const myCloud = await cloudinary.uploader.upload(image.url, {public_id: image.public_id},
+      {
+        folder: "portfolio",
+      });
+      user.youtube.unshift({
+        url,
+        title,
+        image: {
+          public_id: myCloud.public_id,
+          url: myCloud.secure_url,
+        },
+      });
+  
+      await user.save();
+  
+      res.status(200).json({
+        success: true,
+        message: "Added To Youtube Videos",
+      });
+    } catch (error) {
+      return res.status(400).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  };
+  
