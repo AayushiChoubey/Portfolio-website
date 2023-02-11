@@ -4,7 +4,8 @@ import {login,
      logout, 
      getUser,
      myProfile,
-     contact
+     contact,
+     updateUser
 }
       from '../controllers/User.js';
 
@@ -19,6 +20,8 @@ userRouter.route("/logout").get(logout);
 userRouter.route("/user").get(getUser);
 
 userRouter.route("/me").get(isAuthenticated, myProfile);
+
+userRouter.route("/admin/update").put(isAuthenticated, updateUser);
 
 
 userRouter.route("/contact").post(contact);

@@ -2,6 +2,7 @@ import {User} from "../model/User.js";
 import {Contact} from "../model/Contact.js";
 import jwt from "jsonwebtoken";
 import { sendMail } from "../middlewares/sendMail.js";
+import cloudinary from "cloudinary";
 
 export const login = async (req, res) => {
     try {
@@ -115,6 +116,143 @@ export const login = async (req, res) => {
         feedback: newContact,
       });
 
+    } catch (error) {
+      return res.status(400).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  };
+
+  export const updateUser = async (req, res) => {
+    try {
+      const user = await User.findById(req.user._id);
+  
+      const { name, email, password, skills, about } = req.body;
+  
+      if (name) {
+        user.name = name;
+      }
+  
+      if (email) {
+        user.email = email;
+      }
+      if (password) {
+        user.password = password;
+      }
+  
+      if (skills) {
+        if (skills.image1) {
+          await cloudinary.v2.uploader.destroy(user.skills.image1.public_id);
+          const myCloud = await cloudinary.v2.uploader.upload(skills.image1, {
+            folder: "portfolio",
+          });
+  
+          user.skills.image1 = {
+            public_id: myCloud.public_id,
+            url: myCloud.secure_url,
+          };
+        }
+  
+        if (skills.image2) {
+          await cloudinary.v2.uploader.destroy(user.skills.image2.public_id);
+          const myCloud = await cloudinary.v2.uploader.upload(skills.image2, {
+            folder: "portfolio",
+          });
+  
+          user.skills.image2 = {
+            public_id: myCloud.public_id,
+            url: myCloud.secure_url,
+          };
+        }
+  
+        if (skills.image3) {
+          await cloudinary.v2.uploader.destroy(user.skills.image3.public_id);
+          const myCloud = await cloudinary.v2.uploader.upload(skills.image3, {
+            folder: "portfolio",
+          });
+  
+          user.skills.image3 = {
+            public_id: myCloud.public_id,
+            url: myCloud.secure_url,
+          };
+        }
+  
+        if (skills.image4) {
+          await cloudinary.v2.uploader.destroy(user.skills.image4.public_id);
+          const myCloud = await cloudinary.v2.uploader.upload(skills.image4, {
+            folder: "portfolio",
+          });
+  
+          user.skills.image4 = {
+            public_id: myCloud.public_id,
+            url: myCloud.secure_url,
+          };
+        }
+  
+        if (skills.image5) {
+          await cloudinary.v2.uploader.destroy(user.skills.image5.public_id);
+          const myCloud = await cloudinary.v2.uploader.upload(skills.image5, {
+            folder: "portfolio",
+          });
+  
+          user.skills.image5 = {
+            public_id: myCloud.public_id,
+            url: myCloud.secure_url,
+          };
+        }
+  
+        if (skills.image6) {
+          await cloudinary.v2.uploader.destroy(user.skills.image6.public_id);
+          const myCloud = await cloudinary.v2.uploader.upload(skills.image6, {
+            folder: "portfolio",
+          });
+  
+          user.skills.image6 = {
+            public_id: myCloud.public_id,
+            url: myCloud.secure_url,
+          };
+        }
+      }
+  
+      if (about) {
+        if (about.name) {
+          user.about.name = about.name;
+        }
+        if (about.title) {
+          user.about.title = about.title;
+        }
+        if (about.subtitle) {
+          user.about.subtitle = about.subtitle;
+        }
+  
+        if (about.description) {
+          user.about.description = about.description;
+        }
+        if (about.quote) {
+          user.about.quote = about.quote;
+        }
+  
+        if (about.avatar) {
+          await cloudinary.v2.uploader.destroy(user.about.avatar.public_id);
+  
+          const myCloud = await cloudinary.v2.uploader.upload(about.avatar, {
+            folder: "portfolio",
+          });
+  
+          user.about.avatar = {
+            public_id: myCloud.public_id,
+            url: myCloud.secure_url,
+          };
+        }
+      }
+  
+      await user.save();
+  
+      res.status(200).json({
+        success: true,
+        message: "User Updated Successfully",
+      });
     } catch (error) {
       return res.status(400).json({
         success: false,
