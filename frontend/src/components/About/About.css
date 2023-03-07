@@ -37,7 +37,8 @@
     box-sizing: border-box;
     padding: 2vmax;
     display: flex;
-    transform: translateX(-100vw) translateY(-10%) rotateZ(-360deg);
+    transform: translateX(-100vw) translateY(-10%) ;
+    /* rotateZ(-360deg); */
   
     animation: aboutAnimation 1s ease-in forwards;
   }
