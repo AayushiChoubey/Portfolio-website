@@ -8,7 +8,19 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Contact from './components/Contact/Contact';
 import Login from './components/Login/Login';
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getUser} from "./actions/user";
 function App() {
+  const dispatch = useDispatch();
+
+  // const { isAuthenticated } = useSelector((state) => state.login);
+  // const { loading, user } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    dispatch(getUser());
+    //dispatch(loadUser());
+  }, [dispatch]);
 
   return (
     <>

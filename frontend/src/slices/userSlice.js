@@ -1,4 +1,5 @@
 import {createReducer} from '@reduxjs/toolkit';
+//import { isAuthenticated } from  '../../../backend/middlewares/auth';
 
 
 const initialState = {
@@ -20,6 +21,26 @@ export const userReducer = createReducer(initialState, {
     state.error = null;
   },
 });
+
+export const loginReducer = createReducer(initialState, {
+  LOGIN_REQUEST: (state) => {
+    state.loading = true;
+    state.isAuthenticated=false;
+  },
+  LOGIN_SUCCESS: (state, action) => {
+    state.loading = false;
+    state.isAuthenticated=true;
+    state.user = action.payload;
+           
+  },
+  LOGIN_FAILURE: (state, action) => {
+    state.isAuthenticated=false;
+    state.loading = false;
+    state.error = action.payload;
+  },
+});
+
+
 
 
 
