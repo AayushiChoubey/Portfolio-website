@@ -6,7 +6,11 @@ export const getUser = () => async (dispatch) => {
       type: "GET_USER_REQUEST",
     });
 
-    const { data } = await axios.get("/api/v1/user");
+    const { data } = await axios.get("/api/v1/user",{
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
     dispatch({
       type: "GET_USER_SUCCESS",
@@ -25,12 +29,6 @@ export const login = (email, password) => async (dispatch) => {
     dispatch({
       type: "LOGIN_REQUEST",
     });
-
-    // const config = {
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // };
 
     const { data } = await axios.post(
       "/api/v1/login",
