@@ -38,21 +38,20 @@ export const loginReducer = createReducer(initialState, {
     state.loading = false;
     state.error = action.payload;
   },
-  // LOAD_USER_REQUEST: (state) => {
-  //   state.loading = true;
-  //   state.isAuthenticated = false;
-  // },
-  // LOAD_USER_SUCCESS: (state, action) => {
-  //   state.loading = false;
-  //   state.isAuthenticated = true;
-  //   //state.user = null;
-  //   state.message= action.payload;
-  // },
-  // LOAD_USER_FAILURE: (state, action) => {
-  //   state.loading = false;
-  //   state.isAuthenticated = false;
-  //   state.error = action.payload;
-  // },
+  LOAD_USER_REQUEST: (state) => {
+    state.loading = true;
+    state.isAuthenticated = false;
+  },
+  LOAD_USER_SUCCESS: (state, action) => {
+    state.loading = false;
+    state.isAuthenticated = true;
+    state.message= action.payload;
+  },
+  LOAD_USER_FAILURE: (state, action) => {
+    state.loading = false;
+    state.isAuthenticated = false;
+    state.error = action.payload;
+  },
 
   LOGOUT_REQUEST: (state) => {
     state.loading = true;
