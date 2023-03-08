@@ -1,7 +1,7 @@
 import { Button, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-//import { useDispatch, useSelector } from "react-redux";
-//import { login } from "../../actions/user";
+import { useDispatch } from "react-redux";
+import { login } from "../../actions/user";
 import "./Login.css";
 //import { useAlert } from "react-alert";
 
@@ -9,13 +9,13 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-//   const dispatch = useDispatch();
-//   const alert = useAlert();
-//   const { loading, message, error } = useSelector((state) => state.login);
+   const dispatch = useDispatch();
+//  const alert = useAlert();
+// const { loading, message, error } = useSelector((state) => state.login);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    //dispatch(login(email, password));
+    dispatch(login(email, password));
   };
 
 //   useEffect(() => {

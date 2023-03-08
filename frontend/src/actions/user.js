@@ -26,11 +26,11 @@ export const login = (email, password) => async (dispatch) => {
       type: "LOGIN_REQUEST",
     });
 
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+    // const config = {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // };
 
     const { data } = await axios.post(
       "/api/v1/login",
@@ -49,6 +49,46 @@ export const login = (email, password) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: "LOGIN_FAILURE",
+      payload: error.response.data.message,
+    });
+  }
+};
+
+export const logout = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: "LOGOUT_REQUEST",
+    });
+
+    const { data } = await axios.get("/api/v1/logout");
+
+    dispatch({
+      type: "LOGOUT_SUCCESS",
+      payload: data.message,
+    });
+  } catch (error) {
+    dispatch({
+      type: "LOGOUT_FAILURE",
+      payload: error.response.data.message,
+    });
+  }
+};
+
+export const loadUser = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: "LOAD_USER_REQUEST",
+    });
+
+    const { data } = await axios.get("/api/v1/me");
+
+    dispatch({
+      type: "LOAD_USER_SUCCESS",
+      payload: data.user,
+    });
+  } catch (error) {
+    dispatch({
+      type: "LOAD_USER_FAILURE",
       payload: error.response.data.message,
     });
   }
