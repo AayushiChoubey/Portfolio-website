@@ -31,7 +31,7 @@ export const loginReducer = createReducer(initialState, {
     state.loading = false;
     state.isAuthenticated=true;
     state.user = action.payload;
-    state.message = action.payload;
+    state.message = "Logged In Successfully!";
            
   },
   LOGIN_FAILURE: (state, action) => {

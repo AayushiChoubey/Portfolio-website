@@ -12,7 +12,7 @@ import { useAlert } from "react-alert";
 const AdminPanel = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
-  const { message: loginMessage } = useSelector((state) => state.login ? state.login : {message: "Logged In Successfully!"});
+  const loginMessage = "Logged In Successfully!";
   const { message, error, loading } = useSelector((state) => state.update ? state.update : {message: "", error: "", loading: true});
 
   const [name, setName] = useState("");
