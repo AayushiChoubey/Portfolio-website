@@ -147,7 +147,7 @@ export const login = async (req, res) => {
           const myCloud = await cloudinary.v2.uploader.upload(skills.image1, {
             folder: "portfolio",
           });
-  
+
           user.skills.image1 = {
             public_id: myCloud.public_id,
             url: myCloud.secure_url,

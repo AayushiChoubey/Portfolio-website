@@ -76,6 +76,13 @@ const AdminPanel = () => {
   };
 
   useEffect(() => {
+    if (loginMessage) {
+      alert.success(loginMessage);
+      dispatch({ type: "CLEAR_MESSAGE" });
+    }
+  }, []);
+
+  useEffect(() => {
     if (error) {
       alert.success(error);
       dispatch({ type: "CLEAR_ERRORS" });
@@ -83,12 +90,8 @@ const AdminPanel = () => {
     if (message) {
        alert.success(message);
       dispatch({ type: "CLEAR_MESSAGE" });
-    }
-    if (loginMessage) {
-      alert.success(loginMessage);
-      dispatch({ type: "CLEAR_MESSAGE" });
-    }
-  }, [alert, error, message, dispatch, loginMessage]);
+    } 
+  }, [alert, error, message, dispatch]);
 
   return (
     <div className="adminPanel">
