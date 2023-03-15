@@ -12,8 +12,8 @@ import { useAlert } from "react-alert";
 const AdminPanel = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
-   const { message: loginMessage } = useSelector((state) => state.login ? state.login : {message: ""});
-   const { message, error, loading } = useSelector((state) => state.update ? state.update : {message: "", error: "", loading: false});
+  const { message: loginMessage } = useSelector((state) => state.login ? state.login : {message: "Logged In Successfully!"});
+  const { message, error, loading } = useSelector((state) => state.update ? state.update : {message: "", error: "", loading: true});
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -77,11 +77,11 @@ const AdminPanel = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      alert.success(error);
       dispatch({ type: "CLEAR_ERRORS" });
     }
     if (message) {
-      alert.success(message);
+       alert.success(message);
       dispatch({ type: "CLEAR_MESSAGE" });
     }
     if (loginMessage) {
@@ -93,6 +93,7 @@ const AdminPanel = () => {
   return (
     <div className="adminPanel">
       <div className="adminPanelContainer">
+        <button onClick={() => alert.show("Hello World")}>Show Alert</button>
         <Typography variant="h4">
           <p>A</p>
           <p>D</p>

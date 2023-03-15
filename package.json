@@ -29,6 +29,8 @@
     "mongoose": "^6.9.1",
     "nodemailer": "^6.9.1",
     "overlay-navbar": "^1.2.3",
+    "react-alert": "^7.0.3",
+    "react-alert-template-basic": "^1.0.2",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.2.2",
     "three": "^0.149.0"
