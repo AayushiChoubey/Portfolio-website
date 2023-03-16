@@ -11,8 +11,8 @@ import Login from './components/Login/Login';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser,loadUser} from "./actions/user";
- import AdminPanel from "./components/Admin/AdminPanel";
-// import Timeline from "./components/Admin/Timeline";
+import AdminPanel from "./components/Admin/AdminPanel";
+import Timeline from "./components/Admin/Timeline";
 // import Youtube from "./components/Admin/Youtube";
 // import Project from "./components/Admin/Project";
 // import Loader from "./components/Loader/Loader";
@@ -44,7 +44,12 @@ function App() {
               path="/account"
               element={isAuthenticated ? <AdminPanel /> : <Login />}
             />
+        <Route
+              path="/admin/timeline"
+              element={isAuthenticated ? <Timeline /> : <Login />}
+            />
       </Routes>
+      
       <Footer />
       </>
     )}

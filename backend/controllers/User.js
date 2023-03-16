@@ -277,7 +277,7 @@ export const login = async (req, res) => {
   
       res.status(200).json({
         success: true,
-        message: "Added To Timline",
+        message: "Added To Timeline",
       });
     } catch (error) {
       return res.status(400).json({
@@ -370,7 +370,7 @@ export const deleteTimeline = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: "Deleted from Timline",
+      message: "Deleted from Timeline",
     });
   } catch (error) {
     return res.status(400).json({
