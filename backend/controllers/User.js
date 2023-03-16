@@ -292,7 +292,7 @@ export const login = async (req, res) => {
   
       const user = await User.findById(req.user._id);
   
-      const myCloud = await cloudinary.uploader.upload(image.url, {public_id: image.public_id},
+      const myCloud = await cloudinary.uploader.upload(image,
       {
         folder: "portfolio",
       });

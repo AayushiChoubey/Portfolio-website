@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUser,loadUser} from "./actions/user";
 import AdminPanel from "./components/Admin/AdminPanel";
 import Timeline from "./components/Admin/Timeline";
-// import Youtube from "./components/Admin/Youtube";
+ import Youtube from "./components/Admin/Youtube";
 // import Project from "./components/Admin/Project";
 // import Loader from "./components/Loader/Loader";
 
@@ -48,6 +48,11 @@ function App() {
               path="/admin/timeline"
               element={isAuthenticated ? <Timeline /> : <Login />}
             />
+
+        <Route
+              path="/admin/youtube"
+              element={isAuthenticated ? <Youtube /> : <Login />}
+            /> 
       </Routes>
       
       <Footer />
