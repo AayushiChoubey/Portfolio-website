@@ -126,3 +126,35 @@ export const updateUser =
       });
     }
   };
+
+  export const addTimeline = (title, description, date) => async (dispatch) => {
+    try {
+      dispatch({
+        type: "ADD_TIMELINE_REQUEST",
+      });
+  
+      const { data } = await axios.post(
+        "/api/v1/admin/timeline/add",
+        {
+          title,
+          description,
+          date,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+  
+      dispatch({
+        type: "ADD_TIMELINE_SUCCESS",
+        payload: data.message,
+      });
+    } catch (error) {
+      dispatch({
+        type: "ADD_TIMELINE_FAILURE",
+        payload: error.response.data.message,
+      });
+    }
+  };
