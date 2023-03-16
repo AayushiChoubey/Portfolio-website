@@ -289,7 +289,7 @@ export const login = async (req, res) => {
   export const addYoutube = async (req, res) => {
     try {
       const { url, title, image } = req.body;
-  
+      console.log(req.body)
       const user = await User.findById(req.user._id);
   
       const myCloud = await cloudinary.uploader.upload(image,

@@ -12,7 +12,7 @@ import YoutubeCard from "../YoutubeCard/Youtube";
 const Youtube = () => {
 
     const { message, error, loading } = useSelector((state) => state.update);
-  //  const { message: loginMessage } = useSelector((state) => state.login);
+     const { message: loginMessage } = useSelector((state) => state.login);
   
     const { user } = useSelector((state) => state.user);
   
@@ -43,15 +43,19 @@ const Youtube = () => {
     };
   
     useEffect(() => {
-      if (error) {
-        alert.success(error);
-        dispatch({ type: "CLEAR_ERRORS" });
-      }
-      if (message) {
-         alert.success(message);
-        dispatch({ type: "CLEAR_MESSAGE" });
-      } 
-    }, [alert, error, message, dispatch]);
+        if (error) {
+          alert.error(error);
+          dispatch({ type: "CLEAR_ERRORS" });
+        }
+        if (message) {
+          alert.success(message);
+          dispatch({ type: "CLEAR_MESSAGE" });
+        }
+        if (loginMessage) {
+          alert.success(loginMessage);
+          dispatch({ type: "CLEAR_MESSAGE" });
+        }
+      }, [alert, error, message, dispatch, loginMessage]);
 
   return (
     <div className="adminPanel">
@@ -101,6 +105,21 @@ const Youtube = () => {
           </Button>
         </form>
 
+
+        <div className="adminPanelYoutubeVideos">
+          {user &&
+            user.youtube &&
+            user.youtube.map((item) => (
+              <YoutubeCard
+                key={item._id}
+                url={item.url}
+                title={item.title}
+                image={item.image.url}
+                isAdmin={true}
+                id={item._id}
+              />
+            ))}
+        </div>
 
     </div>
   </div>
