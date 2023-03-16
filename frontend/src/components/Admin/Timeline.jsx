@@ -6,6 +6,7 @@ import { addTimeline, deleteTimeline } from "../../actions/user";
 import { MdKeyboardBackspace } from "react-icons/md";
 import { Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import { FaTrash } from "react-icons/fa";
 
 const Timeline = () => {
 
@@ -91,9 +92,35 @@ const Timeline = () => {
         </Button>
       </form>
 
+      <div className="adminPanelYoutubeVideos">
+          {user &&
+            user.timeline &&
+            user.timeline.map((item) => (
+              <div className="youtubeCard" key={item._id}>
+                <Typography variant="h6">{item.title}</Typography>
+                <Typography variant="body1" style={{ letterSpacing: "2px" }}>
+                  {item.description}
+                </Typography>
+                <Typography variant="body1" style={{ fontWeight: 600 }}>
+                  {item.date.toString().split("T")[0]}
+                </Typography>
+
+                <Button
+                  style={{
+                    margin: "auto",
+                    display: "block",
+                    color: "rgba(40,40,40,0.7)",
+                  }}
+                  onClick={() => deleteHandler(item._id)}
+                >
+                  <FaTrash />
+                </Button>
+              </div>
+            ))}
+        </div>
+      </div>
     </div>
-  </div>
-  )
-}
+  );
+};
 
 export default Timeline

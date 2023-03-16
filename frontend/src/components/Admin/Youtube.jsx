@@ -12,36 +12,36 @@ import YoutubeCard from "../YoutubeCard/Youtube";
 const Youtube = () => {
 
     const { message, error, loading } = useSelector((state) => state.update);
-     const { message: loginMessage } = useSelector((state) => state.login);
-  
+     //const { message: loginMessage } = useSelector((state) => state.login);
+
     const { user } = useSelector((state) => state.user);
-  
+
     const dispatch = useDispatch();
     const alert = useAlert();
-  
+
     const [title, setTitle] = useState("");
     const [url, setUrl] = useState("");
     const [image, setImage] = useState("");
-  
+
     const submitHandler = async (e) => {
       e.preventDefault();
       await dispatch(addYoutube(title, url, image));
       dispatch(getUser());
     };
-  
+
     const handleImage = (e) => {
       const file = e.target.files[0];
       const Reader = new FileReader();
-  
+
       Reader.readAsDataURL(file);
-  
+
       Reader.onload = () => {
         if (Reader.readyState === 2) {
           setImage(Reader.result);
         }
       };
     };
-  
+
     useEffect(() => {
         if (error) {
           alert.error(error);
@@ -51,13 +51,14 @@ const Youtube = () => {
           alert.success(message);
           dispatch({ type: "CLEAR_MESSAGE" });
         }
-        if (loginMessage) {
-          alert.success(loginMessage);
-          dispatch({ type: "CLEAR_MESSAGE" });
-        }
-      }, [alert, error, message, dispatch, loginMessage]);
+        // if (loginMessage) {
+        //   alert.success(loginMessage);
+        //   dispatch({ type: "CLEAR_MESSAGE" });
+        // }
+      }, [alert, error, message, dispatch]);
 
   return (
+    <>
     <div className="adminPanel">
     <div className="adminPanelContainer">
       <button onClick={() => alert.show("Hello World")}>Show Alert</button>
@@ -105,7 +106,6 @@ const Youtube = () => {
           </Button>
         </form>
 
-
         <div className="adminPanelYoutubeVideos">
           {user &&
             user.youtube &&
@@ -123,6 +123,8 @@ const Youtube = () => {
 
     </div>
   </div>
+
+</>
   )
 }
 
