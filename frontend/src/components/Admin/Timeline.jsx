@@ -8,19 +8,21 @@ import { Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const Timeline = () => {
+
     const dispatch = useDispatch();
     const alert = useAlert();
    // const loginMessage = "Logged In Successfully!";
   
     const { message, error, loading } = useSelector((state) => state.update ? state.update : {message: "", error: "", loading: true});
+     const {user}= useSelector((state)=>state.user);  
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [date, setDate] = useState("");
 
-    const submitHandler = (e) => {
+    const  submitHandler = async (e) => {
         e.preventDefault();
-        dispatch(addTimeline(title, description, date));
+       await dispatch(addTimeline(title, description, date));
     };
 
     const deleteHandler = (id) => {
