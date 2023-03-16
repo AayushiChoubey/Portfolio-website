@@ -264,7 +264,6 @@ export const login = async (req, res) => {
   export const addTimeline = async (req, res) => {
     try {
       const { title, description, date } = req.body;
-  
       const user = await User.findById(req.user._id);
   
       user.timeline.unshift({

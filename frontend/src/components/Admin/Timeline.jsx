@@ -11,6 +11,7 @@ const Timeline = () => {
     const dispatch = useDispatch();
     const alert = useAlert();
    // const loginMessage = "Logged In Successfully!";
+  
     const { message, error, loading } = useSelector((state) => state.update ? state.update : {message: "", error: "", loading: true});
 
     const [title, setTitle] = useState("");
@@ -19,7 +20,7 @@ const Timeline = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(addTimeline({title, description, date}));
+        dispatch(addTimeline(title, description, date));
     };
 
     const deleteHandler = (id) => {
@@ -79,7 +80,7 @@ const Timeline = () => {
             className="adminPanelInputs"
           />
 
-        <Link to="/admin/timeline">
+        <Link to="/account">
           Back <MdKeyboardBackspace />
         </Link>
 
