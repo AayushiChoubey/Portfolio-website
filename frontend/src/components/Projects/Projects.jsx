@@ -2,10 +2,10 @@ import { Button, Typography } from "@mui/material";
 import React from "react";
 import "./Projects.css";
 import { AiOutlineProject } from "react-icons/ai";
-//import { Delete } from "@mui/icons-material";
+import { Delete } from "@mui/icons-material";
 import { FaRegSmileWink } from "react-icons/fa";
-//import { deleteProject, getUser } from "../../actions/user";
-//import { useDispatch } from "react-redux";
+import { deleteProject, getUser } from "../../actions/user";
+import { useDispatch } from "react-redux";
 import project from "../../data/projects.json";
 
 export const ProjectCard = ({
@@ -15,14 +15,14 @@ export const ProjectCard = ({
   description,
   technologies,
   id,
-  //isAdmin = false,
+  isAdmin = false,
 }) => {
-//   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-//   const deleteHandler = async (id) => {
-//     await dispatch(deleteProject(id));
-//     dispatch(getUser());
-//   };
+  const deleteHandler = async (id) => {
+    await dispatch(deleteProject(id));
+    dispatch(getUser());
+  };
 
   return (
     <>
@@ -38,14 +38,14 @@ export const ProjectCard = ({
         </div>
       </a>
 
-      {/* {isAdmin && (
+      {isAdmin && (
         <Button
           style={{ color: "rgba(40,40,40,0.7)" }}
           onClick={() => deleteHandler(id)}
         >
           <Delete />
         </Button>
-      )} */}
+      )}
     </>
   );
 };
@@ -60,7 +60,7 @@ const Projects = ({ projects }) => {
       <div className="projectsWrapper">
         {project.map((item) => (
           <ProjectCard
-            //id={item._id}
+            id={item._id}
             key={item.key}
             url={item.url}
             projectImage={item.image}

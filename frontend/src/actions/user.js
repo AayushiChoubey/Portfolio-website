@@ -223,4 +223,81 @@ export const updateUser =
         payload: error.response.data.message,
       });
     }
-  };  
+  };
+  export const addProject =
+  (title, url, image, description, techStack) => async (dispatch) => {
+    try {
+      dispatch({
+        type: "ADD_PROJECT_REQUEST",
+      });
+
+      const { data } = await axios.post(
+        "/api/v1/admin/project/add",
+        { title, url, image, description, techStack },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      dispatch({
+        type: "ADD_PROJECT_SUCCESS",
+        payload: data.message,
+      });
+    } catch (error) {
+      dispatch({
+        type: "ADD_PROJECT_FAILURE",
+        payload: error.response.data.message,
+      });
+    }
+  };
+
+export const deleteProject = (id) => async (dispatch) => {
+  try {
+    dispatch({
+      type: "DELETE_PROJECT_REQUEST",
+    });
+
+    const { data } = await axios.delete(`/api/v1/admin/project/${id}`);
+
+    dispatch({
+      type: "DELETE_PROJECT_SUCCESS",
+      payload: data.message,
+    });
+  } catch (error) {
+    dispatch({
+      type: "DELETE_PROJECT_FAILURE",
+      payload: error.response.data.message,
+    });
+  }
+};
+
+export const contactUs = (name, email, message) => async (dispatch) => {
+  try {
+    dispatch({
+      type: "CONTACT_US_REQUEST",
+    });
+
+    const { data } = await axios.post(
+      "/api/v1/contact",
+      { name, email, message },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    dispatch({
+      type: "CONTACT_US_SUCCESS",
+      payload: data.message,
+    });
+  } catch (error) {
+    dispatch({
+      type: "CONTACT_US_FAILURE",
+      payload: error.response.data.message,
+    });
+  }
+};
+  

@@ -326,10 +326,11 @@ export const addProject = async (req, res) => {
 
     const user = await User.findById(req.user._id);
 
-    const myCloud = await cloudinary.v2.uploader.upload(image.url, {public_id: image.public_id})
-    // const myCloud = await cloudinary.v2.uploader.upload(image.url, image.public_id, {
-    //   folder: "portfolio",
-    // });
+    //const myCloud = await cloudinary.v2.uploader.upload(image)
+     const myCloud = await cloudinary.v2.uploader.upload(image,
+      {
+        folder: "portfolio",
+      });
     user.projects.unshift({
       url,
       title,
