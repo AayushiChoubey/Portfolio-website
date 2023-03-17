@@ -3,27 +3,27 @@ import React from "react";
 import "./About.css";
 import image from "../../Images/image.jpg";
 
-const About = () => {
+const About = ({about}) => {
   return (
     <div className="about">
       <div className="aboutContainer">
-        <Typography>Quote</Typography>
+        <Typography>{about.quote}</Typography>
       </div>
       <div className="aboutContainer2">
         <div>
-          <img src={image} alt="Abhi" className="aboutAvatar" />
+          <img src={about.avatar.url} alt="Abhi" className="aboutAvatar" />
 
           <Typography
             variant="h4"
             style={{ margin: "1vmax 0", color: "black" }}
           >
-           Aayushi Choubey
+           {about.name}
           </Typography>
 
-          <Typography>Title</Typography>
+          <Typography>{about.title}</Typography>
 
           <Typography style={{ margin: "1vmax 0", textAlign: "center" }}>
-            Subtitle
+            {about.subtitle}
           </Typography>
         </div>
 
@@ -36,7 +36,7 @@ const About = () => {
               textAlign: "right",
             }}
           >
-            Description
+            {about.description}
           </Typography>
         </div>
       </div>

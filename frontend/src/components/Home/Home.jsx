@@ -4,8 +4,8 @@ import * as THREE from "three";
 import moonImage from "../../Images/moon.jpg";
 import venusImage from "../../Images/venus.jpg";
 import spaceImage from "../../Images/space.jpg";
-import image from "../../Images/image.jpg";
-import youtubes from "../../data/youtubes.json";
+//import image from "../../Images/image.jpg";
+//import youtubes from "../../data/youtubes.json";
 import { Typography } from "@mui/material";
 import TimeLine from "../Timeline/Timeline";
 import {
@@ -24,7 +24,7 @@ import { Link } from "react-router-dom";
 import { MouseOutlined } from "@mui/icons-material";
 
 
-const Home = () => {
+const Home = ({timelines,youtubes,skills}) => {
 
   useEffect(() => {
     const textureLoader = new THREE.TextureLoader();
@@ -167,7 +167,7 @@ const Home = () => {
 
       <div className="homeContainer">
         <Typography variant="h3">TIMELINE</Typography>
-        <TimeLine timelines={[1,2,3,4]} />
+        <TimeLine  timelines={timelines} />
       </div>
 
       <div className="homeSkills">
@@ -175,27 +175,27 @@ const Home = () => {
 
         <div className="homeCubeSkills">
           <div className="homeCubeSkillsFaces homeCubeSkillsFace1">
-            <img src={image} alt="Face1" />
+            <img src={skills.image1.url} alt="Face1" />
           </div>
 
           <div className="homeCubeSkillsFaces homeCubeSkillsFace2">
-            <img src={image} alt="Face2" />
+            <img src={skills.image2.url} alt="Face2" />
           </div>
 
           <div className="homeCubeSkillsFaces homeCubeSkillsFace3">
-            <img src={image} alt="Face3" />
+            <img src={skills.image3.url} alt="Face3" />
           </div>
 
           <div className="homeCubeSkillsFaces homeCubeSkillsFace4">
-            <img src={image} alt="Face4" />
+            <img src={skills.image4.url} alt="Face4" />
           </div>
 
           <div className="homeCubeSkillsFaces homeCubeSkillsFace5">
-            <img src={image} alt="Face5" />
+            <img src={skills.image5.url} alt="Face5" />
           </div>
 
           <div className="homeCubeSkillsFaces homeCubeSkillsFace6">
-            <img src={image} alt="Face6" />
+            <img src={skills.image6.url} alt="Face6" />
           </div>
         </div>
 

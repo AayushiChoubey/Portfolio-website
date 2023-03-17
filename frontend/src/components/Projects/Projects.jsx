@@ -6,7 +6,7 @@ import { Delete } from "@mui/icons-material";
 import { FaRegSmileWink } from "react-icons/fa";
 import { deleteProject, getUser } from "../../actions/user";
 import { useDispatch } from "react-redux";
-import project from "../../data/projects.json";
+//import project from "../../data/projects.json";
 
 export const ProjectCard = ({
   url,
@@ -53,12 +53,12 @@ export const ProjectCard = ({
 const Projects = ({ projects }) => {
   return (
     <div className="projects">
-      <Typography variant="h3">
+      <Typography variant="h4">
         Projects <AiOutlineProject />
       </Typography>
 
       <div className="projectsWrapper">
-        {project.map((item) => (
+        {projects.map((item) => (
           <ProjectCard
             id={item._id}
             key={item.key}
@@ -71,7 +71,7 @@ const Projects = ({ projects }) => {
         ))}
       </div>
 
-      <Typography variant="h3" style={{ font: "100 1.2rem 'Ubuntu Mono'" }}>
+      <Typography variant="h4" style={{ font: "100 1.2rem 'Ubuntu Mono'" }}>
         All The Projects Shown Above Are Made By Me <FaRegSmileWink />
       </Typography>
     </div>
