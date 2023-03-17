@@ -136,13 +136,23 @@ const Home = ({timelines,youtubes,skills}) => {
 
         <div className="homeCanvasContainer">
         <Typography variant="h2">
-          <p>A</p>
-          <p>A</p>
-          <p>Y</p>
-          <p>U</p>
-          <p>S</p>
-          <p>H</p>
-          <p>I</p>
+          
+        <p>A</p>
+        <p>A</p>
+        <p>Y</p>
+        <p>U</p>
+        <p>S</p>
+        <p>H</p>
+        <p style={{ marginRight: "1vmax" }}>I</p>
+       
+        <p>C</p>
+        <p>H</p>
+        <p>O</p>
+        <p>U</p>
+        <p>B</p>
+        <p>E</p>
+        <p>Y</p>
+          
         </Typography>
 
         <Link to="/projects">VIEW WORK</Link>
