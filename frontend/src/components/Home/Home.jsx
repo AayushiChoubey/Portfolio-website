@@ -130,33 +130,20 @@ const Home = ({timelines,youtubes,skills}) => {
   }, []);
 
   return (
-    <>
+    
       <div className="home">
         <canvas className="homeCanvas"></canvas>
 
-        {/* <div className="homeCanvasContainer">
-          <Typography variant="h1" color={'purple'}>
-            <p>A</p>
-            <p>A</p>
-            <p>Y</p>
-            <p>U</p>
-            <p>S</p>
-            <p>H</p>
-            <p>I</p>
-          
-          </Typography>
-        </div>
-          <Typography variant="h3">TimeLine</Typography>
-          <TimeLine timelines={[1,2,3,4]}/> */}
-
-        
-    
-      {/* <div className="homeCanvasBox">
-          <Typography variant="h2">DESIGNER</Typography>
-          <Typography variant="h2">DEVELOPER</Typography>
-          <Typography variant="h2">TEACHER</Typography>
-          <Typography variant="h2">CONTENT CREATOR</Typography>
-        </div> */}
+        <div className="homeCanvasContainer">
+        <Typography variant="h2">
+          <p>A</p>
+          <p>A</p>
+          <p>Y</p>
+          <p>U</p>
+          <p>S</p>
+          <p>H</p>
+          <p>I</p>
+        </Typography>
 
         <Link to="/projects">VIEW WORK</Link>
       </div>
@@ -167,7 +154,7 @@ const Home = ({timelines,youtubes,skills}) => {
 
       <div className="homeContainer">
         <Typography variant="h3">TIMELINE</Typography>
-        <TimeLine  timelines={timelines} />
+        <TimeLine timelines={timelines}/>
       </div>
 
       <div className="homeSkills">
@@ -229,7 +216,9 @@ const Home = ({timelines,youtubes,skills}) => {
           ))}
         </div> 
       </div>
-    </>
+    </div>  
+    
+  
     
   )
 }

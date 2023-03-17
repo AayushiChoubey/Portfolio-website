@@ -1,12 +1,20 @@
 .home{
   overflow-x: hidden;
 }
+.homeCanvas{
+  width: 100wh;
+  height: 100vh;
+  max-width: 100%;
+  filter: blur(3px);
+position: absolute;
+
+}
 .homeCanvasBox {
-    position: absolute;
     top: 50%;
     right: 0%;
     text-align: right;
     transform: translate(0%, -50%);
+   
   
   }
   
@@ -23,9 +31,9 @@
     color: rgb(0, 0, 0);
     font: 700 1rem "Ubuntu Mono", "Roboto";
     text-decoration: none;
-    padding: 2vmax 6vmax;
+    padding: 1vmax 3vmax;
     box-sizing: border-box;
-    border: 1px solid white;
+    border: 1px solid  hsl(250, 100%, 75%);
     position: absolute;
     left: 50%;
     top: 50%;
